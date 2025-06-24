@@ -12,11 +12,11 @@
 
 ## Start RViz in the Docker container
 >This section assumes you have already set up your environment according to the guide [here](dev_env_setup.md)
-
+Use `docker images` to check the name of the image that you loaded with the compressed archive.
 - In a terminal on your host OS, run the following:
 
     ```
-    docker run -it --rm -p 6080:80 -p 10000:10000 --shm-size=1024m unity-robotics:nav2-slam-example
+    docker run -it --rm -p 6080:80 -p 10000:10000 --shm-size=1024m <image-name>
     ```
 
 - In a web browser connect to [http://127.0.0.1:6080](http://127.0.0.1:6080) and follow the steps below:
@@ -74,6 +74,11 @@ Congratulations! The TurtleBot is now navigating the map as it generates it from
 
 > While the Nav2 stack is pretty robust to most goal inputs, it may occasionally crash or otherwise reach a state where it no longer responds as expected. These issues can most of the time be fixed by simply killing and restarting the nav2 nodes, and pressing `Play` twice in Unity to stop and restart the simulation.
 
+## Using Exlpore Lite
+- Make sure that the unity_slam_example is launched as stated above and that you can interact with the example. Then open another terminal in the docker container.
+- cd into the `~/colcon_ws` directory and source the setup.bash file with `source install/setup.bash`. Then run `ros2 launch explore_lite explore.launch.py`.
+- The robot should now start exploring the environment. Once it is finished it will attempt to return to the starting position.
+
 ## Getting Started with Visualizations
 
 The next step is to add visualizations in Unity using the Visualizations Package. Proceed to [Visualizing with Unity](unity_viz.md).
@@ -87,3 +92,6 @@ The next step is to add visualizations in Unity using the Visualizations Package
 launch.invalid_launch_file_error.InvalidLaunchFileError: Caught exception when trying to load file of format [py]: "package 'ros_tcp_endpoint' not found, searching: ['/home/rosdev/colcon_ws/install/unity_slam_example', '/opt/ros/foxy']"
 ```
 You likely forgot to check out the submodules when following the [setup instructions](dev_env_setup.md). You will need to check them out with `git submodule update --init --recursive` and re-build the container as per the instructions in the linked page.
+
+**If the robot does not move when running explore-lite**
+- Send a target pose to the robot while running the slam example such that the occupancy grid has some features(i.e. it is not uniform in all directions). Then restart the explore-lite package as stated above.
