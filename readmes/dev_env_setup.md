@@ -27,12 +27,10 @@ git clone --recurse-submodule git@github.com:Unity-Technologies/Robotics-Nav2-SL
 This project should work with any appropriately configured ROS 2 environment, but we strongly encourage users new to ROS to build the environment from the [Dockerfile provided with the project](../ros2_docker/Dockerfile), which exposes a pre-configured ROS 2 environment to you via a built-in web VNC client. We may be unable to provide adequate troubleshooting support for other environments. 
 
 ### Build the Docker container
-- From the root of the repository, run the following:
-    ```
-    cd ros2_docker
-    docker build -t unity-robotics:nav2-slam-example ./
-    ```
-This build process will take at least 10 minutes, depending on your download speeds and hardware specificiations, but you are free to proceed to next step while it is building.
+- The docker container for this repository has been modified from the original Unity-Technologies repository and can be found [here](https://drive.google.com/drive/folders/1ns7N_aMk3XHed-r5Tv5rSrhyeipVli7i?usp=drive_link)
+- Download the compressed archive and load it with docker using `docker load -i <tar-file-name>`
+- ~~From the root of the repository, run the following:~~
+~~This build process will take at least 10 minutes, depending on your download speeds and hardware specificiations, but you are free to proceed to next step while it is building.~~
 
 
 ### (Optional) Using an alternative ROS 2 environment
