@@ -1,5 +1,7 @@
 # Configure your Development Environment
 
+**Note: portions of this page were modified from the [original unity nav2 slam project](https://github.com/Unity-Technologies/Robotics-Nav2-SLAM-Example)**
+
 **Table of Contents**
 - [Install the Unity Editor](#install-the-unity-editor)
 - [Clone the Project](#clone-the-project)
